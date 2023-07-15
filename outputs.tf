@@ -15,7 +15,4 @@ output "website_bucket_domain" {
   value       = module.website_s3_bucket.domain
 }
 
-output "bucket_url" {
-  description = "URL of the S3 bucket"
-  value       = module.website_s3_bucket.bucket_url
-}
+
