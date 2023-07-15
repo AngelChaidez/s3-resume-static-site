@@ -46,6 +46,15 @@ resource "aws_s3_bucket_ownership_controls" "s3_bucket_acl_ownership" {
   }
 }
 
+resource "null_resource" "delay" {
+  depends_on = [aws_s3_bucket.s3_bucket]
+
+  provisioner "local-exec" {
+    command = "sleep 30" # Wait for 30 seconds, adjust the duration as needed
+  }
+}
+
+
 resource "aws_s3_bucket_policy" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
 
@@ -65,5 +74,5 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
       },
     ]
   })
-  depends_on = [ aws_s3_bucket.s3_bucket ]
+  depends_on = [ null_resource.delay]
 }
