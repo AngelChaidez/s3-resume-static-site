@@ -7,12 +7,12 @@ resource "aws_s3_bucket" "s3_bucket" {
   tags = var.tags
 }
 
-resource "aws_s3_bucket_public_access_block" "s3_bucket_public_access_block"{
+resource "aws_s3_bucket_public_access_block" "s3_bucket_public_access_block" {
   bucket = aws_s3_bucket.s3_bucket.id
 
-  block_public_acls = false
+  block_public_acls   = false
   block_public_policy = false
-  
+
 }
 
 resource "aws_s3_bucket_website_configuration" "s3_bucket" {
@@ -63,7 +63,7 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
         Sid       = "PublicReadGetObject"
         Effect    = "Allow"
         Principal = "*"
-        Action    = ["s3:GetObject","s3:PutBucketAcl",
+        Action = ["s3:GetObject", "s3:PutBucketAcl",
         "s3:PutBucketPolicy"]
         Resource = [
           aws_s3_bucket.s3_bucket.arn,
@@ -72,5 +72,5 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
       },
     ]
   })
-  depends_on = [ null_resource.delay]
+  depends_on = [null_resource.delay]
 }
