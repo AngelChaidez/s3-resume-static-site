@@ -18,7 +18,7 @@ provider "aws" {
 module "website_s3_bucket" {
   source = "./modules/aws-s3-static-website-bucket"
 
-  bucket_name = "achaidez-s3-static-website-bucket"
+  bucket_name = "dwight-schrute-s3-static-website-bucket"
 
   tags = {
     Terraform   = "true"

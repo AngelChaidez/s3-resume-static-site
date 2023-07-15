@@ -65,4 +65,5 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
       },
     ]
   })
+  depends_on = [ aws_s3_bucket.s3_bucket ]
 }
