@@ -23,7 +23,3 @@ output "s3_bucket_region" {
   value       = aws_s3_bucket.s3_bucket.region
 
 }
-
-#https://dwight-k-schrute-s3-resume.s3.us-west-2.amazonaws.com/index.html
-#https://dwight-k-schrute-s3-resume.s3-website-us-west-2.amazonaws.com/index.html
-#"https://${aws_s3_bucket.s3_bucket.id}.${aws_s3_bucket.s3_bucket.website_domain}/index.html"
